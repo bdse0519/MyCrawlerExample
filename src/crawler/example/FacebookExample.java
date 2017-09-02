@@ -24,11 +24,11 @@ public class FacebookExample {
 		// 遠端資料路徑
 		// [query sample]
 		// search?fields=name,id,likes,talking_about_count&limit=1000&q=靠北&type=page
-		String uri = 
-				"https://graph.facebook.com/v2.5"
-				+ "/search?q=%E9%9D%A0%E5%8C%97&type=page&limit=1000&fields=name,id,likes,talking_about_count"
-				+ "&access_token=EAACEdEose0cBAMzLyMlMxZAY73J1TBiZAHJhrF8du8fLhMmGYrUA3W9ezJDQk9oZAa07o4F2drZAL2k1cCtgdpl5LZClZCo6733A3xddNbjSAoTxEZBWY4rKnzLWTU3I0KMgT0qsw6eIRfdzg9RZCIkuTZCtGZCyzct657fywQpsFCNAZDZD";
-
+		String uri =
+				"https://graph.facebook.com/v2.10"
+						+ "/search?q=%e5%91%8a%e7%99%bd&type=page&limit=1000&fields=name,id,talking_about_count,fan_count"
+						+ "&access_token=EAACEdEose0cBANkmucxqXk692iFMulOYhZCpnXNFPux4V4CPQYM98Fv01gcAZCrMeCWX4onzVX8LsGUEJNEdDDwqJS4VzluzvhY7HGEQQBn5w94j7ZCJcKR03lyA79WuHcMP8le7XSIIDAL4oqjztZARTBQx1dfZCb6RMbCRW85rNdjcTBJFWeOEFdrxoz8IhLTeJOII1HwZDZD";
+    //search 告白
 
 
 		// Jsoup select 後回傳的是  Elements 物件
@@ -54,7 +54,7 @@ public class FacebookExample {
 		for( Element data: elems ){
 			String id = data.select("id").text();
 			String name = data.select("name").text();
-			String likes = data.select("likes").text();
+			String likes = data.select("fan_count").text();
 			String talking_about_count = data.select("talking_about_count").text();
 			
 			output += id+",\""+name+"\","+likes+","+talking_about_count+"\n";
